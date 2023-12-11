@@ -21,6 +21,16 @@ Route::get('/thoyib',function () {
     return "Hello Thoyib Hidayat";
 });
 
+Route::view('/hello', 'hello', ['name' => 'Thoyib Hidayat']);
+
+Route::get('/hello-again',function () {
+    return view('hello', ['name' => "Thoyib Hidayat"]);
+});
+
+Route::get('/hello-world',function () {
+    return view('hello.world', ['name' => "Thoyib Hidayat"]);
+});
+
 Route::redirect('/youtube','/thoyib');
 Route::fallback(function () {
     return "404 nih";
