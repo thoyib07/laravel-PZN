@@ -35,3 +35,19 @@ Route::redirect('/youtube','/thoyib');
 Route::fallback(function () {
     return "404 nih";
 });
+
+Route::get('/products/{id}', function ($productId){
+    return "Products : $productId";
+});
+
+Route::get('/products/{product}/items/{item}', function ($productId, $itemId){
+    return "Products : $productId, Item : $itemId";
+});
+
+Route::get('/category/{id}', function ($categoryId) {
+    return "Category : $categoryId";
+})->where('id', '[0-9]*');
+
+Route::get('/user/{id?}', function ($categoryId = "404") {
+    return "User : $categoryId";
+});
